@@ -113,18 +113,7 @@ CREATE TABLE notificacion (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
 );
 
--- 12. SUGERIDOS (Algoritmo para recomendar canales a usuarios)
--- ACABAR DE MIRAR COMO HACER ELTAGEADO DEL CONTENIDO
-CREATE TABLE sugeridos (
-    sugerido_id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL, -- A quién se le sugiere
-    canal_id INT NOT NULL,   -- El canal sugerido
-    prioridad_score INT DEFAULT 1, -- Puntaje del algoritmo
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    FOREIGN KEY (canal_id) REFERENCES canales(canal_id) ON DELETE CASCADE
-);
-
--- 13. BILLETERA (Monedas virtuales de la plataforma)
+-- 12. BILLETERA (Monedas virtuales de la plataforma)
 CREATE TABLE billetera (
     billetera_id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT UNIQUE NOT NULL,
@@ -132,7 +121,7 @@ CREATE TABLE billetera (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
 );
 
--- 14. REPORTES
+-- 13. REPORTES
 CREATE TABLE reportes (
     reporte_id INT AUTO_INCREMENT PRIMARY KEY,
     denunciante_id INT NOT NULL,
