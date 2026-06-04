@@ -3,305 +3,103 @@
 -- INSERTS TABLA USUARIOS (100 FILAS)
 -- =========================================================
 
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('alexgamer','alexgamer@gmail.com','hash001','https://avatar.com/1.png','2025-01-01 10:00:00');
+-- =========================================================
+-- INSERTS 01-45
+-- =========================================================
+
+INSERT INTO usuarios (username, email, password_hash, avatar_url, creado_en) VALUES 
+('alexgamer', 'alexgamer@gmail.com', 'hash001', 'https://avatar.com', '2025-01-01 10:00:00'),
+('mariastream', 'maria@gmail.com', 'hash002', 'https://avatar.com', '2025-01-01 10:05:00'),
+('juanlol', 'juan@gmail.com', 'hash003', 'https://avatar.com', '2025-01-01 10:10:00'),
+('luciaval', 'lucia@gmail.com', 'hash004', 'https://avatar.com', '2025-01-01 10:15:00'),
+('pedromc', 'pedro@gmail.com', 'hash005', 'https://avatar.com', '2025-01-01 10:20:00'),
+('sofiplay', 'sofia@gmail.com', 'hash006', 'https://avatar.com', '2025-01-01 10:25:00'),
+('miguelpro', 'miguel@gmail.com', 'hash007', 'https://avatar.com', '2025-01-01 10:30:00'),
+('carlitox', 'carlos@gmail.com', 'hash008', 'https://avatar.com', '2025-01-01 10:35:00'),
+('danifps', 'daniel@gmail.com', 'hash009', 'https://avatar.com', '2025-01-01 10:40:00'),
+('valegames', 'valentina@gmail.com', 'hash010', 'https://avatar.com', '2025-01-01 10:45:00'),
+('fernandito', 'fernando@gmail.com', 'hash011', 'https://avatar.com', '2025-01-01 10:50:00'),
+('camigaming', 'camila@gmail.com', 'hash012', 'https://avatar.com', '2025-01-01 10:55:00'),
+('tomasgg', 'tomas@gmail.com', 'hash013', 'https://avatar.com', '2025-01-01 11:00:00'),
+('nicolaslive', 'nicolas@gmail.com', 'hash014', 'https://avatar.com', '2025-01-01 11:05:00'),
+('martinajr', 'martina@gmail.com', 'hash015', 'https://avatar.com', '2025-01-01 11:10:00'),
+('robertoplay', 'roberto@gmail.com', 'hash016', 'https://avatar.com', '2025-01-01 11:15:00'),
+('julietalive', 'julieta@gmail.com', 'hash017', 'https://avatar.com', '2025-01-01 11:20:00'),
+('cristianyt', 'cristian@gmail.com', 'hash018', 'https://avatar.com', '2025-01-01 11:25:00'),
+('andrespro', 'andres@gmail.com', 'hash019', 'https://avatar.com', '2025-01-01 11:30:00'),
+('elenafps', 'elena@gmail.com', 'hash020', 'https://avatar.com', '2025-01-01 11:35:00'),
+('pablomaster', 'pablo@gmail.com', 'hash021', 'https://avatar.com', '2025-01-01 11:40:00'),
+('adrianplay', 'adrian@gmail.com', 'hash022', 'https://avatar.com', '2025-01-01 11:45:00'),
+('gabrielgg', 'gabriel@gmail.com', 'hash023', 'https://avatar.com', '2025-01-01 11:50:00'),
+('lauragame', 'laura@gmail.com', 'hash024', 'https://avatar.com', '2025-01-01 11:55:00'),
+('santiagox', 'santiago@gmail.com', 'hash025', 'https://avatar.com', '2025-01-01 12:00:00'),
+('beatriztv', 'beatriz@gmail.com', 'hash026', 'https://avatar.com', '2025-01-01 12:05:00'),
+('victorlive', 'victor@gmail.com', 'hash027', 'https://avatar.com', '2025-01-01 12:10:00'),
+('danielita', 'daniela@gmail.com', 'hash028', 'https://avatar.com', '2025-01-01 12:15:00'),
+('jorgefps', 'jorge@gmail.com', 'hash029', 'https://avatar.com', '2025-01-01 12:20:00'),
+('renatamc', 'renata@gmail.com', 'hash030', 'https://avatar.com', '2025-01-01 12:25:00'),
+('oscarlol', 'oscar@gmail.com', 'hash031', 'https://avatar.com', '2025-01-01 12:30:00'),
+('karinagames', 'karina@gmail.com', 'hash032', 'https://avatar.com', '2025-01-01 12:35:00'),
+('raulstream', 'raul@gmail.com', 'hash033', 'https://avatar.com', '2025-01-01 12:40:00'),
+('ximenalive', 'ximena@gmail.com', 'hash034', 'https://avatar.com', '2025-01-01 12:45:00'),
+('dieguito', 'diego@gmail.com', 'hash035', 'https://avatar.com', '2025-01-01 12:50:00'),
+('anagaming', 'ana@gmail.com', 'hash036', 'https://avatar.com', '2025-01-01 12:55:00'),
+('kevinfps', 'kevin@gmail.com', 'hash037', 'https://avatar.com', '2025-01-01 13:00:00'),
+('saraplay', 'sara@gmail.com', 'hash038', 'https://avatar.com', '2025-01-01 13:05:00'),
+('ivanpro', 'ivan@gmail.com', 'hash039', 'https://avatar.com', '2025-01-01 13:10:00'),
+('monicastream', 'monica@gmail.com', 'hash040', 'https://avatar.com', '2025-01-01 13:15:00'),
+('albertotv', 'alberto@gmail.com', 'hash041', 'https://avatar.com', '2025-01-01 13:20:00'),
+('clarita', 'clara@gmail.com', 'hash042', 'https://avatar.com', '2025-01-01 13:25:00'),
+('sergioxd', 'sergio@gmail.com', 'hash043', 'https://avatar.com', '2025-01-01 13:30:00'),
+('patriciag', 'patricia@gmail.com', 'hash044', 'https://avatar.com', '2025-01-01 13:35:00'),
+('ricardogg', 'ricardo@gmail.com', 'hash045', 'https://avatar.com', '2025-01-01 13:40:00'),
+('nataliamc', 'natalia@gmail.com', 'hash046', 'https://avatar.com', '2025-01-01 13:45:00'),
+('estebanfps', 'esteban@gmail.com', 'hash047', 'https://avatar.com', '2025-01-01 13:50:00'),
+('lorenalive', 'lorena@gmail.com', 'hash048', 'https://avatar.com', '2025-01-01 13:55:00'),
+('ramirolol', 'ramiro@gmail.com', 'hash049', 'https://avatar.com', '2025-01-01 14:00:00'),
+('paulastream', 'paula@gmail.com', 'hash050', 'https://avatar.com', '2025-01-01 14:05:00'),
+('hectorplay', 'hector@gmail.com', 'hash051', 'https://avatar.com', '2025-01-01 14:10:00'),
+('gabytv', 'gabriela@gmail.com', 'hash052', 'https://avatar.com', '2025-01-01 14:15:00'),
+('samuelpro', 'samuel@gmail.com', 'hash053', 'https://avatar.com', '2025-01-01 14:20:00'),
+('martafps', 'marta@gmail.com', 'hash054', 'https://avatar.com', '2025-01-01 14:25:00'),
+('julianlive', 'julian@gmail.com', 'hash055', 'https://avatar.com', '2025-01-01 14:30:00'),
+('veronicag', 'veronica@gmail.com', 'hash056', 'https://avatar.com', '2025-01-01 14:35:00'),
+('felipeyt', 'felipe@gmail.com', 'hash057', 'https://avatar.com', '2025-01-01 14:40:00'),
+('isabellive', 'isabel@gmail.com', 'hash058', 'https://avatar.com', '2025-01-01 14:45:00'),
+('manuelgg', 'manuel@gmail.com', 'hash059', 'https://avatar.com', '2025-01-01 14:50:00'),
+('danastream', 'dana@gmail.com', 'hash060', 'https://avatar.com', '2025-01-01 14:55:00'),
+('eduardox', 'eduardo@gmail.com', 'hash061', 'https://avatar.com', '2025-01-01 15:00:00'),
+('silviaplay', 'silvia@gmail.com', 'hash062', 'https://avatar.com', '2025-01-01 15:05:00'),
+('omarpro', 'omar@gmail.com', 'hash063', 'https://avatar.com', '2025-01-01 15:10:00'),
+('danielag', 'daniela2@gmail.com', 'hash064', 'https://avatar.com', '2025-01-01 15:15:00'),
+('brunolive', 'bruno@gmail.com', 'hash065', 'https://avatar.com', '2025-01-01 15:20:00'),
+('alejandrafps', 'alejandra@gmail.com', 'hash066', 'https://avatar.com', '2025-01-01 15:25:00'),
+('cesargg', 'cesar@gmail.com', 'hash067', 'https://avatar.com', '2025-01-01 15:30:00'),
+('tamaramc', 'tamara@gmail.com', 'hash068', 'https://avatar.com', '2025-01-01 15:35:00'),
+('jorgeplay', 'jorge2@gmail.com', 'hash069', 'https://avatar.com', '2025-01-01 15:40:00'),
+('irenetv', 'irene@gmail.com', 'hash070', 'https://avatar.com', '2025-01-01 15:45:00'),
+('raulgaming', 'raul2@gmail.com', 'hash071', 'https://avatar.com', '2025-01-01 15:50:00'),
+('angelalive', 'angela@gmail.com', 'hash072', 'https://avatar.com', '2025-01-01 15:55:00'),
+('sebastianfps', 'sebastian@gmail.com', 'hash073', 'https://avatar.com', '2025-01-01 16:00:00'),
+('paolagg', 'paola@gmail.com', 'hash074', 'https://avatar.com', '2025-01-01 16:05:00'),
+('marcoslive', 'marcos@gmail.com', 'hash075', 'https://avatar.com', '2025-01-01 16:10:00'),
+('noeliaplay', 'noelia@gmail.com', 'hash076', 'https://avatar.com', '2025-01-01 16:15:00'),
+('adriangg', 'adrian2@gmail.com', 'hash077', 'https://avatar.com', '2025-01-01 16:20:00'),
+('cristinax', 'cristina@gmail.com', 'hash078', 'https://avatar.com', '2025-01-01 16:25:00'),
+('franciscotv', 'francisco@gmail.com', 'hash079', 'https://avatar.com', '2025-01-01 16:30:00'),
+('yanetlive', 'yanet@gmail.com', 'hash080', 'https://avatar.com', '2025-01-01 16:35:00'),
+('leonardomc', 'leonardo@gmail.com', 'hash081', 'https://avatar.com', '2025-01-01 16:40:00'),
+('daniflow', 'daniela3@gmail.com', 'hash082', 'https://avatar.com', '2025-01-01 16:45:00'),
+('rubengg', 'ruben@gmail.com', 'hash083', 'https://avatar.com', '2025-01-01 16:50:00'),
+('nuriaplay', 'nuria@gmail.com', 'hash084', 'https://avatar.com', '2025-01-01 16:55:00'),
+('hugofps', 'hugo@gmail.com', 'hash085', 'https://avatar.com', '2025-01-01 17:00:00'),
+('claralive', 'clara2@gmail.com', 'hash086', 'https://avatar.com', '2025-01-01 17:05:00'),
+('mateopro', 'mateo@gmail.com', 'hash087', 'https://avatar.com', '2025-01-01 17:10:00'),
+('esthermc', 'esther@gmail.com', 'hash088', 'https://avatar.com', '2025-01-01 17:15:00'),
+('vicentegg', 'vicente@gmail.com', 'hash089', 'https://avatar.com', '2025-01-01 17:20:00'),
+('monicalive', 'monica2@gmail.com', 'hash090', 'https://avatar.com', '2025-01-01 17:25:00'),
+('rafaelx', 'rafael@gmail.com', 'hash091', 'https://avatar.com', '2025-01-01 17:30:00');
 
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('mariastream','maria@gmail.com','hash002','https://avatar.com/2.png','2025-01-01 10:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('juanlol','juan@gmail.com','hash003','https://avatar.com/3.png','2025-01-01 10:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('luciaval','lucia@gmail.com','hash004','https://avatar.com/4.png','2025-01-01 10:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('pedromc','pedro@gmail.com','hash005','https://avatar.com/5.png','2025-01-01 10:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('sofiplay','sofia@gmail.com','hash006','https://avatar.com/6.png','2025-01-01 10:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('miguelpro','miguel@gmail.com','hash007','https://avatar.com/7.png','2025-01-01 10:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('carlitox','carlos@gmail.com','hash008','https://avatar.com/8.png','2025-01-01 10:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('danifps','daniel@gmail.com','hash009','https://avatar.com/9.png','2025-01-01 10:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('valegames','valentina@gmail.com','hash010','https://avatar.com/10.png','2025-01-01 10:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('fernandito','fernando@gmail.com','hash011','https://avatar.com/11.png','2025-01-01 10:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('camigaming','camila@gmail.com','hash012','https://avatar.com/12.png','2025-01-01 10:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('tomasgg','tomas@gmail.com','hash013','https://avatar.com/13.png','2025-01-01 11:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('nicolaslive','nicolas@gmail.com','hash014','https://avatar.com/14.png','2025-01-01 11:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('martinajr','martina@gmail.com','hash015','https://avatar.com/15.png','2025-01-01 11:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('robertoplay','roberto@gmail.com','hash016','https://avatar.com/16.png','2025-01-01 11:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('julietalive','julieta@gmail.com','hash017','https://avatar.com/17.png','2025-01-01 11:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('cristianyt','cristian@gmail.com','hash018','https://avatar.com/18.png','2025-01-01 11:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('andrespro','andres@gmail.com','hash019','https://avatar.com/19.png','2025-01-01 11:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('elenafps','elena@gmail.com','hash020','https://avatar.com/20.png','2025-01-01 11:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('pablomaster','pablo@gmail.com','hash021','https://avatar.com/21.png','2025-01-01 11:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('adrianplay','adrian@gmail.com','hash022','https://avatar.com/22.png','2025-01-01 11:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('gabrielgg','gabriel@gmail.com','hash023','https://avatar.com/23.png','2025-01-01 11:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('lauragame','laura@gmail.com','hash024','https://avatar.com/24.png','2025-01-01 11:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('santiagox','santiago@gmail.com','hash025','https://avatar.com/25.png','2025-01-01 12:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('beatriztv','beatriz@gmail.com','hash026','https://avatar.com/26.png','2025-01-01 12:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('victorlive','victor@gmail.com','hash027','https://avatar.com/27.png','2025-01-01 12:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('danielita','daniela@gmail.com','hash028','https://avatar.com/28.png','2025-01-01 12:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('jorgefps','jorge@gmail.com','hash029','https://avatar.com/29.png','2025-01-01 12:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('renatamc','renata@gmail.com','hash030','https://avatar.com/30.png','2025-01-01 12:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('oscarlol','oscar@gmail.com','hash031','https://avatar.com/31.png','2025-01-01 12:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('karinagames','karina@gmail.com','hash032','https://avatar.com/32.png','2025-01-01 12:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('raulstream','raul@gmail.com','hash033','https://avatar.com/33.png','2025-01-01 12:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('ximenalive','ximena@gmail.com','hash034','https://avatar.com/34.png','2025-01-01 12:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('dieguito','diego@gmail.com','hash035','https://avatar.com/35.png','2025-01-01 12:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('anagaming','ana@gmail.com','hash036','https://avatar.com/36.png','2025-01-01 12:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('kevinfps','kevin@gmail.com','hash037','https://avatar.com/37.png','2025-01-01 13:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('saraplay','sara@gmail.com','hash038','https://avatar.com/38.png','2025-01-01 13:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('ivanpro','ivan@gmail.com','hash039','https://avatar.com/39.png','2025-01-01 13:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('monicastream','monica@gmail.com','hash040','https://avatar.com/40.png','2025-01-01 13:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('albertotv','alberto@gmail.com','hash041','https://avatar.com/41.png','2025-01-01 13:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('clarita','clara@gmail.com','hash042','https://avatar.com/42.png','2025-01-01 13:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('sergioxd','sergio@gmail.com','hash043','https://avatar.com/43.png','2025-01-01 13:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('patriciag','patricia@gmail.com','hash044','https://avatar.com/44.png','2025-01-01 13:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('ricardogg','ricardo@gmail.com','hash045','https://avatar.com/45.png','2025-01-01 13:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('nataliamc','natalia@gmail.com','hash046','https://avatar.com/46.png','2025-01-01 13:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('estebanfps','esteban@gmail.com','hash047','https://avatar.com/47.png','2025-01-01 13:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('lorenalive','lorena@gmail.com','hash048','https://avatar.com/48.png','2025-01-01 13:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('ramirolol','ramiro@gmail.com','hash049','https://avatar.com/49.png','2025-01-01 14:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('paulastream','paula@gmail.com','hash050','https://avatar.com/50.png','2025-01-01 14:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('hectorplay','hector@gmail.com','hash051','https://avatar.com/51.png','2025-01-01 14:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('gabytv','gabriela@gmail.com','hash052','https://avatar.com/52.png','2025-01-01 14:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('samuelpro','samuel@gmail.com','hash053','https://avatar.com/53.png','2025-01-01 14:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('martafps','marta@gmail.com','hash054','https://avatar.com/54.png','2025-01-01 14:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('julianlive','julian@gmail.com','hash055','https://avatar.com/55.png','2025-01-01 14:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('veronicag','veronica@gmail.com','hash056','https://avatar.com/56.png','2025-01-01 14:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('felipeyt','felipe@gmail.com','hash057','https://avatar.com/57.png','2025-01-01 14:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('isabellive','isabel@gmail.com','hash058','https://avatar.com/58.png','2025-01-01 14:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('manuelgg','manuel@gmail.com','hash059','https://avatar.com/59.png','2025-01-01 14:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('danastream','dana@gmail.com','hash060','https://avatar.com/60.png','2025-01-01 14:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('eduardox','eduardo@gmail.com','hash061','https://avatar.com/61.png','2025-01-01 15:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('silviaplay','silvia@gmail.com','hash062','https://avatar.com/62.png','2025-01-01 15:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('omarpro','omar@gmail.com','hash063','https://avatar.com/63.png','2025-01-01 15:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('danielag','daniela2@gmail.com','hash064','https://avatar.com/64.png','2025-01-01 15:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('brunolive','bruno@gmail.com','hash065','https://avatar.com/65.png','2025-01-01 15:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('alejandrafps','alejandra@gmail.com','hash066','https://avatar.com/66.png','2025-01-01 15:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('cesargg','cesar@gmail.com','hash067','https://avatar.com/67.png','2025-01-01 15:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('tamaramc','tamara@gmail.com','hash068','https://avatar.com/68.png','2025-01-01 15:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('jorgeplay','jorge2@gmail.com','hash069','https://avatar.com/69.png','2025-01-01 15:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('irenetv','irene@gmail.com','hash070','https://avatar.com/70.png','2025-01-01 15:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('raulgaming','raul2@gmail.com','hash071','https://avatar.com/71.png','2025-01-01 15:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('angelalive','angela@gmail.com','hash072','https://avatar.com/72.png','2025-01-01 15:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('sebastianfps','sebastian@gmail.com','hash073','https://avatar.com/73.png','2025-01-01 16:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('paolagg','paola@gmail.com','hash074','https://avatar.com/74.png','2025-01-01 16:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('marcoslive','marcos@gmail.com','hash075','https://avatar.com/75.png','2025-01-01 16:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('noeliaplay','noelia@gmail.com','hash076','https://avatar.com/76.png','2025-01-01 16:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('adriangg','adrian2@gmail.com','hash077','https://avatar.com/77.png','2025-01-01 16:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('cristinax','cristina@gmail.com','hash078','https://avatar.com/78.png','2025-01-01 16:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('franciscotv','francisco@gmail.com','hash079','https://avatar.com/79.png','2025-01-01 16:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('yanetlive','yanet@gmail.com','hash080','https://avatar.com/80.png','2025-01-01 16:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('leonardomc','leonardo@gmail.com','hash081','https://avatar.com/81.png','2025-01-01 16:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('daniflow','daniela3@gmail.com','hash082','https://avatar.com/82.png','2025-01-01 16:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('rubengg','ruben@gmail.com','hash083','https://avatar.com/83.png','2025-01-01 16:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('nuriaplay','nuria@gmail.com','hash084','https://avatar.com/84.png','2025-01-01 16:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('hugofps','hugo@gmail.com','hash085','https://avatar.com/85.png','2025-01-01 17:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('claralive','clara2@gmail.com','hash086','https://avatar.com/86.png','2025-01-01 17:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('mateopro','mateo@gmail.com','hash087','https://avatar.com/87.png','2025-01-01 17:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('esthermc','esther@gmail.com','hash088','https://avatar.com/88.png','2025-01-01 17:15:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('vicentegg','vicente@gmail.com','hash089','https://avatar.com/89.png','2025-01-01 17:20:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('monicalive','monica2@gmail.com','hash090','https://avatar.com/90.png','2025-01-01 17:25:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('rafaelx','rafael@gmail.com','hash091','https://avatar.com/91.png','2025-01-01 17:30:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('gloriatv','gloria@gmail.com','hash092','https://avatar.com/92.png','2025-01-01 17:35:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('samirfps','samir@gmail.com','hash093','https://avatar.com/93.png','2025-01-01 17:40:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('tatianalive','tatiana@gmail.com','hash094','https://avatar.com/94.png','2025-01-01 17:45:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('gonzalogg','gonzalo@gmail.com','hash095','https://avatar.com/95.png','2025-01-01 17:50:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('rosaplay','rosa@gmail.com','hash096','https://avatar.com/96.png','2025-01-01 17:55:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('federicopro','federico@gmail.com','hash097','https://avatar.com/97.png','2025-01-01 18:00:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('adrianalive','adriana@gmail.com','hash098','https://avatar.com/98.png','2025-01-01 18:05:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('emiliogg','emilio@gmail.com','hash099','https://avatar.com/99.png','2025-01-01 18:10:00');
-
-INSERT INTO usuarios (username,email,password_hash,avatar_url,creado_en)
-VALUES ('lucianamc','luciana@gmail.com','hash100','https://avatar.com/100.png','2025-01-01 18:15:00');
 
 -- =========================================================
 -- INSERTS TABLA CANALES (1 - 25)
