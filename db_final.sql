@@ -1,7 +1,23 @@
--- 1. USUARIOS
--- Tabla para almacenar la información de los usuarios registrados en la plataforma
-CREATE TABLE usuarios (
-    usuario_id INT AUTO_INCREMENT PRIMARY KEY,
+-- 1. TIPOS ENUM (Se crean solo si no existen para evitar errores)
+DO $$ 
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'estado_live') THEN
+        CREATE TYPE estado_live AS ENUM ('en_vivo', 'finalizado');
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'tipo_producto') THEN
+        CREATE TYPE tipo_producto AS ENUM ('emote', 'badge', 'sticker');
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'tipo_notificacion') THEN
+        CREATE TYPE tipo_notificacion AS ENUM ('live_en_vivo', 'nuevo_seguidor', 'sistema', 'mensajes_nuevos');
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'estado_reporte') THEN
+        CREATE TYPE estado_reporte AS ENUM ('pendiente', 'revisado', 'desestimado');
+    END IF;
+END $$;
+
+-- 1. TABLA USUARIOS
+CREATE TABLE IF NOT EXISTS usuarios (
+    usuario_id SERIAL PRIMARY KEY,
     username VARCHAR(20) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
@@ -10,148 +26,124 @@ CREATE TABLE usuarios (
 );
 
 -- 2. CANALES
---Cada usuario tiene su propio canal (perfil)
-CREATE TABLE canales (
-    canal_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS canales (
+    canal_id SERIAL PRIMARY KEY,
     usuario_id INT UNIQUE NOT NULL,
     nombre_canal VARCHAR(100) NOT NULL,
     descripcion TEXT,
     logo_url VARCHAR(255),
-    stream_key VARCHAR(100) UNIQUE NOT NULL, -- Clave para OBS
+    stream_key VARCHAR(100) UNIQUE NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Hemos puesto foreign key de esto porque está relacionada la tabla de usuarios con canales. 1:1
 );
 
---3. LIVE
---Cada usuario puede hacer lives a través de su canal y ver los lives de otra gente 
-CREATE TABLE live (
-    live_id INT AUTO_INCREMENT PRIMARY KEY,
+-- 3. LIVE
+CREATE TABLE IF NOT EXISTS live (
+    live_id SERIAL PRIMARY KEY,
     canal_id INT NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     contenido TEXT,
     descripcion TEXT,
     inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fin TIMESTAMP NULL,
-    estado ENUM('en_vivo', 'finalizado') DEFAULT 'en_vivo',
+    estado estado_live DEFAULT 'en_vivo',
     FOREIGN KEY (canal_id) REFERENCES canales(canal_id) ON DELETE CASCADE
-    --Esta foreign key conecta la ID del canal con la ID del directo. 1:1
-)
+);
 
 -- 4. SEGUIDORES
---Cada canal tiene sus seguidores
-CREATE TABLE seguidores (
-    seguidor_id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL, -- Quien sigue
-    canal_id INT NOT NULL,   -- Canal seguido
+CREATE TABLE IF NOT EXISTS seguidores (
+    seguidor_id SERIAL PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    canal_id INT NOT NULL,
     UNIQUE(usuario_id, canal_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    --Foreign key aquí hace la función de recopilar todos los seguidores del usuario N:1
     FOREIGN KEY (canal_id) REFERENCES canales(canal_id) ON DELETE CASCADE
-    --Tiene la misma función igual que anterior. N:1
 );
 
--- 5. HISTORIAL (Registro de transmisiones pasadas)
---Cada usuario tiene un historial
-CREATE TABLE historial (
+-- 5. HISTORIAL
+CREATE TABLE IF NOT EXISTS historial (
+    historial_id SERIAL PRIMARY KEY,
     usuario_id INT NOT NULL,
-    historial_id INT AUTO_INCREMENT PRIMARY KEY,
     canal_id INT NOT NULL,
     contenido TEXT NOT NULL,
-    FOREIGN KEY (contenido) REFERENCES live(contenido) ON DELETE CASCADE,
-    --La foreign key va aquí porque cada contenido tendrá historial. N:1
     FOREIGN KEY (canal_id) REFERENCES canales(canal_id) ON DELETE CASCADE,
-    --Se guardará cada canal que ha visitado el usuario. N:1
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Necesitamos ID de usuario para asignar internamente una página de sugerencias a cada usuario. 1:1
 );
 
--- 6. CHAT LIVE (Mensajes en tiempo real en los directos)
-CREATE TABLE chat_live (
-    mensaje_live_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+-- 6. CHAT LIVE
+CREATE TABLE IF NOT EXISTS chat_live (
+    mensaje_live_id BIGSERIAL PRIMARY KEY,
     usuario_id INT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Esta foreign key une el mensaje de cada usuario con chat. 1:1
 );
 
--- 7. CHAT PRIVADO (Mensajería directa entre usuarios)
-CREATE TABLE chat_privado (
-    mensaje_privado_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+-- 7. CHAT PRIVADO
+CREATE TABLE IF NOT EXISTS chat_privado (
+    mensaje_privado_id BIGSERIAL PRIMARY KEY,
     remitente_id INT NOT NULL,
     destinatario_id INT NOT NULL,
     contenido_texto TEXT NOT NULL,
     leido BOOLEAN DEFAULT FALSE,
     enviado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (remitente_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    --Esta foreign key une el mensaje de cada usuario con chat privado. 1:1
     FOREIGN KEY (destinatario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Esta foreign key une el mensaje de cada usuario con chat privado. 1:1
 );
 
--- 8. TIENDA (Productos digitales: emotes, medallas, stickers)
-CREATE TABLE tienda (
-    producto_id INT AUTO_INCREMENT PRIMARY KEY,
+-- 8. TIENDA
+CREATE TABLE IF NOT EXISTS tienda (
+    producto_id SERIAL PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     descripcion TEXT,
-    precio_monedas INT NOT NULL, -- Precio en la moneda virtual de la plataforma
+    precio_monedas INT NOT NULL,
     imagen_url VARCHAR(255) NOT NULL,
-    tipo ENUM('emote', 'badge', 'sticker') NOT NULL
+    tipo tipo_producto NOT NULL
 );
 
--- 9. COLECCIÓN (Inventario de lo que compra el usuario)
-CREATE TABLE coleccion (
-    coleccion_id INT AUTO_INCREMENT PRIMARY KEY,
+-- 9. COLECCIÓN
+CREATE TABLE IF NOT EXISTS coleccion (
+    coleccion_id SERIAL PRIMARY KEY,
     usuario_id INT NOT NULL,
     producto_id INT NOT NULL,
     UNIQUE(usuario_id, producto_id),
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    --Es lo que une colección (inventario) con usuario. 1:1
     FOREIGN KEY (producto_id) REFERENCES tienda(producto_id) ON DELETE CASCADE
-    --Es lo que une los productos con la colección. N:1
 );
 
--- 10. BLOQUEADOS (Usuarios bloqueados para no ver su contenido o chat)
-CREATE TABLE bloqueados (
-    bloqueo_id INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id INT NOT NULL,      -- El que bloquea
-    usuario_bloqueado_id INT NOT NULL, -- El bloqueado
-    -- UNIQUE(usuario_id, usuario_bloqueado_id),
+-- 10. BLOQUEADOS
+CREATE TABLE IF NOT EXISTS bloqueados (
+    bloqueo_id SERIAL PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    usuario_bloqueado_id INT NOT NULL,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    --Necesitamos la ID del que está bloqueando. 1:1
     FOREIGN KEY (usuario_bloqueado_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Necesitamos la ID del usuario bloqueado N:1
 );
 
 -- 11. NOTIFICACIÓN
-CREATE TABLE notificacion (
-    notificacion_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS notificacion (
+    notificacion_id SERIAL PRIMARY KEY,
     usuario_id INT NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     mensaje VARCHAR(255) NOT NULL,
-    tipo ENUM('live_en_vivo', 'nuevo_seguidor', 'sistema', 'mensajes_nuevos') NOT NULL,
+    tipo tipo_notificacion NOT NULL,
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Un usuario puede recibir muchas notificaciones. N:1
 );
 
--- 12. BILLETERA (Monedas virtuales de la plataforma)
-CREATE TABLE billetera (
-    billetera_id INT AUTO_INCREMENT PRIMARY KEY,
+-- 12. BILLETERA
+CREATE TABLE IF NOT EXISTS billetera (
+    billetera_id SERIAL PRIMARY KEY,
     usuario_id INT UNIQUE NOT NULL,
     saldo_monedas INT DEFAULT 0,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Es lo que junta al usuario con su billetera. 1:1
 );
 
 -- 13. REPORTES
-CREATE TABLE reportes (
-    reporte_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS reportes (
+    reporte_id SERIAL PRIMARY KEY,
     denunciante_id INT NOT NULL,
     denunciado_id INT NOT NULL,
     motivo VARCHAR(500) NOT NULL,
-    estado ENUM('pendiente', 'revisado', 'desestimado') DEFAULT 'pendiente',
+    estado estado_reporte DEFAULT 'pendiente',
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (denunciante_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
-    --Necesitamos la ID del que está denunciando. 1:1
     FOREIGN KEY (denunciado_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE
-    --Necesitamos la ID del que está siendo denunciado. N:1
 );
